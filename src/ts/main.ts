@@ -1,231 +1,142 @@
+import portfolioImage1 from '../assets/images/7.webp';
+import portfolioImage2 from '../assets/images/4.webp';
+import portfolioImage3 from '../assets/images/5.webp';
+import portfolioImage4 from '../assets/images/2.webp';
 
-        const app = (function() {
-            
-            // --- 1. State & Data Management (Like a React Component State) ---
-            const pricingData: Record<string, number> = {
-                'Eco 20mm': 340,
-                'Augusta 25mm': 380,
-                'Turf & Block': 380,
-                'Multi Sport 15mm': 440
-            };
+const PHONE_NUMBER = '27609697561';
+const portfolioImages: Record<string, string> = {
+    '1': portfolioImage1,
+    '2': portfolioImage2,
+    '3': portfolioImage3,
+    '4': portfolioImage4,
+};
 
-            const state = {
-                turfType: 'Eco 20mm',
-                areaSize: 50,
-                totalCost: 17000
-            };
+function openPortfolioLightbox(src: string, caption: string) {
+    const lightbox = document.getElementById('portfolio-lightbox');
+    const image = document.getElementById('portfolio-lightbox-img') as HTMLImageElement | null;
 
-            // --- 2. DOM Elements Mapping ---
-            const DOM = {
-                nav: {
-                    navbar: document.getElementById('navbar') as HTMLElement | null,
-                    mobileBtn: document.getElementById('mobile-menu-btn') as HTMLButtonElement | null,
-                    mobileMenu: document.getElementById('mobile-menu') as HTMLElement | null,
-                    menuLinks: Array.from(document.querySelectorAll<HTMLElement>('.menu-link'))
-                },
-                estimator: {
-                    turfSelect: document.getElementById('turf-type') as HTMLSelectElement | null,
-                    areaSlider: document.getElementById('area-slider') as HTMLInputElement | null,
-                    areaDisplay: document.getElementById('area-display') as HTMLElement | null,
-                    totalDisplay: document.getElementById('total-cost-display') as HTMLElement | null,
-                    whatsappBtn: document.getElementById('whatsapp-quote-btn') as HTMLButtonElement | null
-                },
-                lightbox: {
-                    container: document.getElementById('lightbox') as HTMLElement | null,
-                    img: document.getElementById('lightbox-img') as HTMLImageElement | null,
-                    caption: document.getElementById('lightbox-caption') as HTMLElement | null,
-                    closeBtn: document.getElementById('lightbox-close') as HTMLButtonElement | null,
-                    items: Array.from(document.querySelectorAll<HTMLElement>('.gallery-item'))
-                },
-                revealElements: Array.from(document.querySelectorAll<HTMLElement>('.reveal'))
-            };
+    if (!lightbox || !image) {
+        return;
+    }
 
-            // --- 3. UI Component Controllers ---
+    image.src = src;
+    image.alt = caption;
+    lightbox.classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
+}
 
-            const NavbarController = {
-                init() {
-                    if (!DOM.nav.mobileBtn || !DOM.nav.mobileMenu || !DOM.nav.navbar) {
-                        return;
-                    }
+function closePortfolioLightbox() {
+    const lightbox = document.getElementById('portfolio-lightbox');
 
-                    const navbar = DOM.nav.navbar;
+    if (!lightbox) {
+        return;
+    }
 
-                    // Mobile menu toggle
-                    DOM.nav.mobileBtn.addEventListener('click', () => {
-                        DOM.nav.mobileMenu?.classList.toggle('hidden');
-                    });
+    lightbox.classList.add('hidden');
+    document.body.classList.remove('overflow-hidden');
+}
 
-                    // Close menu on link click
-                    DOM.nav.menuLinks.forEach(link => {
-                        link.addEventListener('click', () => {
-                            DOM.nav.mobileMenu?.classList.add('hidden');
-                        });
-                    });
+function requestQuote(turfName: string) {
+    const message = `Hi Rosh Synthetics, I am interested in getting a quote for the ${turfName} artificial grass. Could you please provide me with more information?`;
+    const whatsappUrl = `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+}
 
-                    // Scroll effect
-                    window.addEventListener('scroll', () => {
-                        if (window.scrollY > 20) {
-                            navbar.classList.add('shadow-md');
-                            navbar.classList.replace('bg-white/95', 'bg-white');
-                        } else {
-                            navbar.classList.remove('shadow-md');
-                            navbar.classList.replace('bg-white', 'bg-white/95');
-                        }
-                    });
-                }
-            };
+function sendCustomQuote() {
+    const turfSelect = document.getElementById('calc-turf') as HTMLSelectElement | null;
+    const areaInput = document.getElementById('calc-area') as HTMLInputElement | null;
 
-            const EstimatorController = {
-                calculate() {
-                    const pricePerSqm = pricingData[state.turfType];
-                    state.totalCost = state.areaSize * pricePerSqm;
-                    this.render();
-                },
-                updateStateFromInputs() {
-                    if (!DOM.estimator.turfSelect || !DOM.estimator.areaSlider) {
-                        return;
-                    }
+    if (!turfSelect || !areaInput) {
+        return;
+    }
 
-                    state.turfType = DOM.estimator.turfSelect.value;
-                    state.areaSize = parseInt(DOM.estimator.areaSlider.value, 10);
-                    this.calculate();
-                },
-                render() {
-                    if (!DOM.estimator.turfSelect || !DOM.estimator.areaSlider || !DOM.estimator.areaDisplay || !DOM.estimator.totalDisplay || !DOM.estimator.whatsappBtn) {
-                        return;
-                    }
+    const selectedTurf = turfSelect.value;
+    const area = areaInput.value;
 
-                    // Sync DOM with State (React paradigm)
-                    DOM.estimator.turfSelect.value = state.turfType;
-                    DOM.estimator.areaSlider.value = String(state.areaSize);
-                    DOM.estimator.areaDisplay.textContent = String(state.areaSize);
-                    
-                    // Format currency nicely
-                    DOM.estimator.totalDisplay.textContent = 'R ' + state.totalCost.toLocaleString('en-ZA');
+    const message = area
+        ? `Hi Rosh Synthetics, I would like to request an estimate. I have an area of approximately ${area} square meters and I am interested in: ${selectedTurf}.`
+        : `Hi Rosh Synthetics, I would like to request an estimate for: ${selectedTurf}. I'm not sure of the exact measurements yet.`;
 
-                    // Update WhatsApp Payload
-                    const waText = `Hi Rosh Synthetics, I used the calculator on your website. I have an area of approximately ${state.areaSize} m² and I am interested in the ${state.turfType} product. The estimated cost showed R${state.totalCost.toLocaleString('en-ZA')}. Can we arrange a site visit for a formal quote?`;
-                    DOM.estimator.whatsappBtn.onclick = () => {
-                        window.open(`https://wa.me/27609697561?text=${encodeURIComponent(waText)}`, '_blank');
-                    };
-                },
-                init() {
-                    if (!DOM.estimator.turfSelect || !DOM.estimator.areaSlider) {
-                        return;
-                    }
+    const whatsappUrl = `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+}
 
-                    // Listeners
-                    DOM.estimator.turfSelect.addEventListener('change', () => this.updateStateFromInputs());
-                    DOM.estimator.areaSlider.addEventListener('input', () => this.updateStateFromInputs());
-                    // Initial Render
-                    this.render();
-                }
-            };
+function initMobileMenu() {
+    const btn = document.getElementById('mobile-menu-btn') as HTMLButtonElement | null;
+    const menu = document.getElementById('mobile-menu') as HTMLElement | null;
 
-            const LightboxController = {
-                open(src: string, caption: string) {
-                    if (!DOM.lightbox.img || !DOM.lightbox.caption || !DOM.lightbox.container) {
-                        return;
-                    }
+    if (!btn || !menu) {
+        return;
+    }
 
-                    DOM.lightbox.img.src = src;
-                    DOM.lightbox.caption.textContent = caption;
-                    DOM.lightbox.container.classList.remove('hidden');
-                    
-                    // Trigger CSS transition
-                    requestAnimationFrame(() => {
-                        DOM.lightbox.container?.classList.remove('opacity-0');
-                        DOM.lightbox.img?.classList.remove('scale-95');
-                        DOM.lightbox.img?.classList.add('scale-100');
-                    });
-                    document.body.style.overflow = 'hidden'; // Lock background scroll
-                },
-                close() {
-                    if (!DOM.lightbox.img || !DOM.lightbox.container) {
-                        return;
-                    }
+    btn.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+    });
 
-                    DOM.lightbox.container.classList.add('opacity-0');
-                    DOM.lightbox.img.classList.remove('scale-100');
-                    DOM.lightbox.img.classList.add('scale-95');
-                    
-                    setTimeout(() => {
-                        DOM.lightbox.container?.classList.add('hidden');
-                        document.body.style.overflow = 'auto'; // Unlock background scroll
-                    }, 300); // Matches Tailwind transition duration
-                },
-                init() {
-                    if (!DOM.lightbox.container || !DOM.lightbox.closeBtn) {
-                        return;
-                    }
-
-                    const container = DOM.lightbox.container;
-
-                    // Bind gallery items
-                    DOM.lightbox.items.forEach(item => {
-                        item.addEventListener('click', () => {
-                            const src = item.getAttribute('data-src') ?? '';
-                            const caption = item.getAttribute('data-caption') ?? '';
-                            this.open(src, caption);
-                        });
-                    });
-
-                    // Bind close events
-                    DOM.lightbox.closeBtn.addEventListener('click', () => this.close());
-                    container.addEventListener('click', (e) => {
-                        if (e.target === container) this.close();
-                    });
-                    document.addEventListener('keydown', (e) => {
-                        if (e.key === 'Escape' && !container.classList.contains('hidden')) {
-                            this.close();
-                        }
-                    });
-                }
-            };
-
-            const AnimationController = {
-                init() {
-                    // Native Intersection Observer for scroll animations (replaces heavy GSAP/Framer libraries)
-                    const observerOptions = {
-                        threshold: 0.1,
-                        rootMargin: "0px 0px -50px 0px"
-                    };
-
-                    const observer = new IntersectionObserver((entries, observer) => {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting) {
-                                entry.target.classList.add('active');
-                                observer.unobserve(entry.target); // Only animate once
-                            }
-                        });
-                    }, observerOptions);
-
-                    DOM.revealElements.forEach(el => observer.observe(el));
-                }
-            };
-
-            // --- 4. Public API ---
-            return {
-                init() {
-                    NavbarController.init();
-                    EstimatorController.init();
-                    LightboxController.init();
-                    AnimationController.init();
-                },
-                // Expose method to select product from cards (bypassing normal flow)
-                selectProduct(productName: string) {
-                    if (pricingData[productName] !== undefined) {
-                        state.turfType = productName;
-                        EstimatorController.render();
-                        EstimatorController.calculate();
-                        document.getElementById('estimator')?.scrollIntoView({ behavior: 'smooth' });
-                    }
-                }
-            };
-
-        })();
-
-        // Boot the app when DOM is ready
-        document.addEventListener('DOMContentLoaded', () => {
-            app.init();
+    menu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            menu.classList.add('hidden');
         });
+    });
+}
+
+function initPortfolioLightbox() {
+    const lightbox = document.getElementById('portfolio-lightbox');
+    const closeBtn = document.getElementById('portfolio-lightbox-close');
+    const viewButtons = document.querySelectorAll<HTMLElement>('.portfolio-view-btn');
+
+    if (!lightbox || !closeBtn) {
+        return;
+    }
+
+    viewButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const key = button.getAttribute('data-key');
+            const caption = button.getAttribute('data-caption') || 'Project preview';
+            const src = key ? portfolioImages[key] : '';
+            if (src) {
+                openPortfolioLightbox(src, caption);
+            }
+        });
+    });
+
+    closeBtn.addEventListener('click', closePortfolioLightbox);
+
+    lightbox.addEventListener('click', event => {
+        if (event.target === lightbox) {
+            closePortfolioLightbox();
+        }
+    });
+
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') {
+            closePortfolioLightbox();
+        }
+    });
+}
+
+function initQuoteButtons() {
+    document.querySelectorAll<HTMLElement>('.quote-card-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            const product = button.getAttribute('data-product');
+            if (product) {
+                requestQuote(product);
+            }
+        });
+    });
+
+    const customQuoteBtn = document.getElementById('custom-quote-btn');
+    customQuoteBtn?.addEventListener('click', sendCustomQuote);
+}
+
+function init() {
+    initMobileMenu();
+    initPortfolioLightbox();
+    initQuoteButtons();
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+} else {
+    init();
+}

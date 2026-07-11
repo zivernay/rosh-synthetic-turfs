@@ -193,7 +193,7 @@
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="text-xl font-bold text-gray-900 mb-2 uppercase">Multi Sport Green</h3>
                         <p class="text-gray-600 mb-6 flex-grow">Premium 15mm putting green grass. Perfect for custom golf greens and sport surfaces.</p>
-                        <button onclick="requestQuote('Multi Sport Green 15mm')" class="w-full bg-brand-50 text-brand-700 border border-brand-200 py-3 rounded-xl font-semibold hover:bg-brand-600 hover:text-white transition">
+                        <button type="button" class="quote-card-btn w-full bg-brand-50 text-brand-700 border border-brand-200 py-3 rounded-xl font-semibold hover:bg-brand-600 hover:text-white transition" data-product="Multi Sport Green 15mm">
                             Request Quote
                         </button>
                     </div>
@@ -205,7 +205,7 @@
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="text-xl font-bold text-gray-900 mb-2 uppercase">Eco 20mm</h3>
                         <p class="text-gray-600 mb-6 flex-grow">An excellent, durable all-rounder. Great for general landscaping and high-traffic areas.</p>
-                        <button onclick="requestQuote('Eco 20mm')" class="w-full bg-brand-50 text-brand-700 border border-brand-200 py-3 rounded-xl font-semibold hover:bg-brand-600 hover:text-white transition">
+                        <button type="button" class="quote-card-btn w-full bg-brand-50 text-brand-700 border border-brand-200 py-3 rounded-xl font-semibold hover:bg-brand-600 hover:text-white transition" data-product="Eco 20mm">
                             Request Quote
                         </button>
                     </div>
@@ -217,7 +217,7 @@
                     <div class="p-6 flex flex-col flex-grow">
                         <h3 class="text-xl font-bold text-gray-900 mb-2 uppercase">Augusta 25mm</h3>
                         <p class="text-gray-600 mb-6 flex-grow">Luxurious, lush, and realistic. The ultimate upgrade for residential lawns and gardens.</p>
-                        <button onclick="requestQuote('Augusta 25mm')" class="w-full bg-brand-50 text-brand-700 border border-brand-200 py-3 rounded-xl font-semibold hover:bg-brand-600 hover:text-white transition">
+                        <button type="button" class="quote-card-btn w-full bg-brand-50 text-brand-700 border border-brand-200 py-3 rounded-xl font-semibold hover:bg-brand-600 hover:text-white transition" data-product="Augusta 25mm">
                             Request Quote
                         </button>
                     </div>
@@ -225,7 +225,7 @@
             </div>
 
             <!-- Quote Calculator Section -->
-            <div class="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100 max-w-4xl mx-auto">
+            <div id="quote-builder" class="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100 max-w-4xl mx-auto scroll-mt-24">
                 <div class="flex flex-col md:flex-row gap-12 items-center">
                     <div class="w-full md:w-1/2">
                         <h3 class="text-3xl font-bold text-gray-900 mb-4">Quick Quote Builder</h3>
@@ -252,7 +252,7 @@
                                 </div>
                             </div>
 
-                            <button onclick="sendCustomQuote()" class="w-full bg-[#25D366] hover:bg-[#1ebd5a] text-white font-bold rounded-xl text-lg px-5 py-4 text-center transition flex justify-center items-center gap-2 shadow-lg shadow-green-500/30">
+                            <button id="custom-quote-btn" type="button" class="w-full bg-[#25D366] hover:bg-[#1ebd5a] text-white font-bold rounded-xl text-lg px-5 py-4 text-center transition flex justify-center items-center gap-2 shadow-lg shadow-green-500/30">
                                 <i class="fab fa-whatsapp text-xl"></i> Send to WhatsApp for Pricing
                             </button>
                         </div>
@@ -285,23 +285,40 @@
                 <div class="col-span-2 row-span-2 rounded-2xl overflow-hidden shadow-md group relative">
                     <img src="/src/assets/images/7.webp" onerror="this.src='https://placehold.co/800x800/22c55e/ffffff?text=Gallery+1'" alt="Gallery Showcase" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                     <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <span class="text-white font-bold text-lg border-2 border-white px-6 py-2 rounded-full">View Work</span>
+                        <button type="button" class="portfolio-view-btn text-white font-bold text-lg border-2 border-white px-6 py-2 rounded-full hover:bg-white hover:text-gray-900 transition" data-key="1" data-caption="Luxury synthetic lawn and landscaping transformation">
+                            View Work
+                        </button>
                     </div>
                 </div>
                 
                 <!-- Tile 2 -->
                 <div class="rounded-2xl overflow-hidden shadow-md group relative">
                     <img src="/src/assets/images/4.webp" onerror="this.src='https://placehold.co/400x400/16a34a/ffffff?text=Gallery+2'" alt="Gallery Showcase" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <button type="button" class="portfolio-view-btn text-white font-bold text-sm border-2 border-white px-4 py-2 rounded-full hover:bg-white hover:text-gray-900 transition" data-key="2" data-caption="Modern garden and paving finish">
+                            View Work
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Tile 3 -->
                 <div class="rounded-2xl overflow-hidden shadow-md group relative">
                     <img src="/src/assets/images/5.webp" onerror="this.src='https://placehold.co/400x400/15803d/ffffff?text=Gallery+3'" alt="Gallery Showcase" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <button type="button" class="portfolio-view-btn text-white font-bold text-sm border-2 border-white px-4 py-2 rounded-full hover:bg-white hover:text-gray-900 transition" data-key="3" data-caption="Professional installation in progress">
+                            View Work
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Tile 4 (Wide) -->
                 <div class="col-span-2 rounded-2xl overflow-hidden shadow-md group relative">
                     <img src="/src/assets/images/2.webp" onerror="this.src='https://placehold.co/800x400/166534/ffffff?text=Gallery+4'" alt="Gallery Showcase" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 object-top">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <button type="button" class="portfolio-view-btn text-white font-bold text-sm border-2 border-white px-4 py-2 rounded-full hover:bg-white hover:text-gray-900 transition" data-key="4" data-caption="Full garden transformation with premium turf">
+                            View Work
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -387,7 +404,7 @@
                     <ul class="space-y-3">
                         <li><a href="#products" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition">Products & Pricing</a></li>
                         <li><a href="#portfolio" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition">Project Gallery</a></li>
-                        <li><a href="#contact" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition">Quote Calculator</a></li>
+                        <li><a href="#quote-builder" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition">Quote Calculator</a></li>
                     </ul>
                 </div>
             </div>
@@ -399,52 +416,17 @@
         </div>
     </footer>
 
-    <script>
-        // Mobile Menu Toggle
-        document.addEventListener('DOMContentLoaded', () => {
-            const btn = document.getElementById('mobile-menu-btn');
-            const menu = document.getElementById('mobile-menu');
-            const links = menu.querySelectorAll('a');
+    <div id="portfolio-lightbox" class="fixed inset-0 z-[200] hidden bg-black/95 p-0">
+        <div class="flex justify-end p-4 md:p-6">
+            <button id="portfolio-lightbox-close" type="button" class="text-white text-3xl hover:text-brand-500 transition" aria-label="Close project preview">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="flex h-[calc(100vh-5rem)] w-full items-center justify-center p-4 md:p-8">
+            <img id="portfolio-lightbox-img" src="" alt="Project preview" class="max-h-full max-w-full w-auto h-auto rounded-2xl object-contain shadow-2xl">
+        </div>
+    </div>
 
-            btn.addEventListener('click', () => {
-                menu.classList.toggle('hidden');
-            });
-
-            links.forEach(link => {
-                link.addEventListener('click', () => {
-                    menu.classList.add('hidden');
-                });
-            });
-        });
-
-        // WhatsApp Quote Generator Logic
-        const PHONE_NUMBER = "27609697561";
-
-        // Handle clicks from the Product Cards
-        function requestQuote(turfName) {
-            const message = `Hi Rosh Synthetics, I am interested in getting a quote for the ${turfName} artificial grass. Could you please provide me with more information?`;
-            const whatsappUrl = `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
-        }
-
-        // Handle clicks from the Calculator Widget
-        function sendCustomQuote() {
-            const turfSelect = document.getElementById('calc-turf');
-            const areaInput = document.getElementById('calc-area');
-            
-            const selectedTurf = turfSelect.value;
-            const area = areaInput.value;
-
-            let message = "";
-            if (area) {
-                message = `Hi Rosh Synthetics, I would like to request an estimate. I have an area of approximately ${area} square meters and I am interested in: ${selectedTurf}.`;
-            } else {
-                message = `Hi Rosh Synthetics, I would like to request an estimate for: ${selectedTurf}. I'm not sure of the exact measurements yet.`;
-            }
-
-            const whatsappUrl = `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
-        }
-    </script>
+    <script type="module" src="/src/ts/main.ts"></script>
 </body>
 </html>
