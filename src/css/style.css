@@ -1,0 +1,56 @@
+        @import "tailwindcss";
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #16a34a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #15803d; }
+
+        /* Scroll Reveal Animation Classes (Managed by IntersectionObserver) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hero Overlay Gradient */
+        .hero-gradient {
+            background: linear-gradient(to right, rgba(20, 83, 45, 0.95) 0%, rgba(20, 83, 45, 0.4) 100%);
+        }
+
+        /* Range Slider Custom Styling */
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            background: #16a34a;
+            cursor: pointer;
+            margin-top: -8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            transition: transform 0.1s ease;
+        }
+        input[type=range]::-webkit-slider-thumb:hover {
+            transform: scale(1.1);
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 8px;
+            cursor: pointer;
+            background: #e5e7eb;
+            border-radius: 4px;
+            border: 1px solid #d1d5db;
+        }
+        
+        /* Lightbox Image Transition */
+        #lightbox-img {
+            transition: transform 0.3s ease-out;
+        }

@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rosh Synthetics | Premium Artificial Grass & Turf in Cape Town</title>
+    <meta name="description" content="Save water and upgrade your outdoor space with Rosh Synthetics. Expert artificial lawn installation, putting greens, and paving in Cape Town. Get a free quote today!">
+    <meta name="keywords" content="artificial grass, synthetic lawn, Cape Town, water saving, putting green, turf installation, Rosh Synthetics">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind = tailwind || {};
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            900: '#14532d'
+                        }
+                    }
+                }
+            }
+        };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #16a34a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #15803d; }
+
+        /* Scroll Reveal Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hero Overlay Gradient */
+        .hero-gradient {
+            background: linear-gradient(to right, rgba(20, 83, 45, 0.9) 0%, rgba(20, 83, 45, 0.4) 100%);
+        }
+
+        /* Range Slider Styling */
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            background: #16a34a;
+            cursor: pointer;
+            margin-top: -8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 8px;
+            cursor: pointer;
+            background: #d1d5db;
+            border-radius: 4px;
+        }
+
+        .brand-btn {
+            background-color: #16a34a;
+            color: #ffffff;
+            border: 1px solid #16a34a;
+            box-shadow: 0 10px 25px rgba(22, 163, 74, 0.25);
+        }
+
+        .brand-btn:hover {
+            background-color: #15803d;
+        }
+
+        .brand-btn-outline {
+            background-color: rgba(255, 255, 255, 0.12);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased overflow-x-hidden">
+
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="w-10 h-10 bg-brand-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">
+                        RS
+                    </div>
+                    <span class="font-bold text-2xl tracking-tight text-gray-900">Rosh<span class="text-brand-600">Synthetics</span></span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#services" class="text-gray-600 hover:text-brand-600 font-medium transition">Products</a>
+                    <a href="#gallery" class="text-gray-600 hover:text-brand-600 font-medium transition">Our Work</a>
+                    <a href="#estimator" class="text-gray-600 hover:text-brand-600 font-medium transition">Get an Estimate</a>
+                    <a href="#contact" class="brand-btn px-6 py-2.5 rounded-full font-medium transition">Contact Us</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-gray-900 focus:outline-none p-2">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu Panel (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#services" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-gray-50 rounded-md">Products</a>
+                <a href="#gallery" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-gray-50 rounded-md">Our Work</a>
+                <a href="#estimator" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-brand-600 hover:bg-gray-50 rounded-md">Get an Estimate</a>
+                <a href="#contact" class="block px-3 py-3 text-base font-medium text-brand-600 bg-brand-50 rounded-md">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Using 3.jpeg (putting green) as the hero background as it looks very premium -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden min-h-[90vh] flex items-center">
+        <div class="absolute inset-0 z-0">
+            <img src="3.jpeg" alt="Artificial Putting Green in Cape Town" class="w-full h-full object-cover object-center" onerror="this.src='https://images.unsplash.com/photo-1599839619722-39751411ea63?q=80&w=2000&auto=format&fit=crop'">
+            <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-2xl reveal">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white text-sm font-medium mb-6">
+                    <i class="fas fa-droplet text-blue-300"></i> Save Water in Cape Town
+                </div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+                    Evergreen Lawns.<br>Zero Maintenance.
+                </h1>
+                <p class="text-lg md:text-xl text-gray-200 mb-8 font-light">
+                    We specialize in the supply and installation of premium artificial/synthetic grass, putting greens, and paving landscaping. Upgrade your space today.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#contact" class="brand-btn text-center px-8 py-4 rounded-full font-semibold transition text-lg">
+                        Get a Free Quote
+                    </a>
+                    <a href="#gallery" class="brand-btn-outline backdrop-blur-md text-center px-8 py-4 rounded-full font-semibold transition text-lg">
+                        View Our Work
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white relative -mt-8 mx-4 sm:mx-8 lg:mx-auto max-w-7xl rounded-2xl shadow-xl z-20 reveal">
+        <div class="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-100">
+            <div class="p-8 text-center">
+                <div class="w-16 h-16 mx-auto bg-blue-50 text-blue-500 rounded-full flex items-center justify-center text-2xl mb-4">
+                    <i class="fas fa-hand-holding-water"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Save Water</h3>
+                <p class="text-gray-500">Perfect for Cape Town's climate. Eliminate your watering bill completely while staying green.</p>
+            </div>
+            <div class="p-8 text-center">
+                <div class="w-16 h-16 mx-auto bg-amber-50 text-amber-500 rounded-full flex items-center justify-center text-2xl mb-4">
+                    <i class="fas fa-sun"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">UV Protection</h3>
+                <p class="text-gray-500">Our turf is engineered to withstand harsh South African sun without fading or degrading.</p>
+            </div>
+            <div class="p-8 text-center">
+                <div class="w-16 h-16 mx-auto bg-brand-50 text-brand-600 rounded-full flex items-center justify-center text-2xl mb-4">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Zero Maintenance</h3>
+                <p class="text-gray-500">No mowing, no seeding, no fertilizing. Just a perfect lawn 365 days a year.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="text-brand-600 font-semibold tracking-wide uppercase mb-2">Our Products</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Premium Turf Solutions</h3>
+                <p class="text-gray-600 text-lg">We have a variety of products to choose from for residential lawns, sports fields, and play areas. World-class installations guaranteed.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 reveal group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="5.jpeg" alt="Eco 20mm Artificial Grass" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400/16a34a/ffffff?text=Eco+20mm'">
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-sm font-bold text-gray-900 shadow">Best Seller</div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-900 mb-1">Eco 20mm</h4>
+                        <p class="text-gray-500 text-sm mb-4">Perfect for standard residential lawns and low-traffic areas.</p>
+                        <div class="flex items-end gap-1 mb-6">
+                            <span class="text-3xl font-extrabold text-brand-600">R340</span>
+                            <span class="text-gray-500 mb-1">/sqm installed</span>
+                        </div>
+                        <button onclick="document.getElementById('turf-type').value='Eco 20mm'; document.getElementById('estimator').scrollIntoView();" class="w-full py-2.5 rounded-xl border-2 border-gray-200 text-gray-700 font-semibold hover:border-brand-600 hover:text-brand-600 transition">Select for Quote</button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 reveal group" style="transition-delay: 100ms;">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="5.jpeg" alt="Augusta 25mm Artificial Grass" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400/15803d/ffffff?text=Augusta+25mm'">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-900 mb-1">Augusta 25mm</h4>
+                        <p class="text-gray-500 text-sm mb-4">Lush, dense feel. Ideal for premium gardens and play areas.</p>
+                        <div class="flex items-end gap-1 mb-6">
+                            <span class="text-3xl font-extrabold text-brand-600">R380</span>
+                            <span class="text-gray-500 mb-1">/sqm installed</span>
+                        </div>
+                        <button onclick="document.getElementById('turf-type').value='Augusta 25mm'; document.getElementById('estimator').scrollIntoView();" class="w-full py-2.5 rounded-xl border-2 border-gray-200 text-gray-700 font-semibold hover:border-brand-600 hover:text-brand-600 transition">Select for Quote</button>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 reveal group" style="transition-delay: 200ms;">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="5.jpeg" alt="Multi Sport Green 15mm" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400/14532d/ffffff?text=Multi+Sport+Green'">
+                        <div class="absolute top-4 right-4 bg-gray-900/90 backdrop-blur px-3 py-1 rounded-full text-sm font-bold text-white shadow">Putting Greens</div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-900 mb-1">Multi Sport 15mm</h4>
+                        <p class="text-gray-500 text-sm mb-4">Short, durable pile specifically designed for golf putting greens.</p>
+                        <div class="flex items-end gap-1 mb-6">
+                            <span class="text-3xl font-extrabold text-brand-600">R440</span>
+                            <span class="text-gray-500 mb-1">/sqm installed</span>
+                        </div>
+                        <button onclick="document.getElementById('turf-type').value='Multi Sport 15mm'; document.getElementById('estimator').scrollIntoView();" class="w-full py-2.5 rounded-xl border-2 border-gray-200 text-gray-700 font-semibold hover:border-brand-600 hover:text-brand-600 transition">Select for Quote</button>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 reveal group" style="transition-delay: 300ms;">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="6.jpeg" alt="Turf and Block Installation" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400/64748b/ffffff?text=Paving+%26+Turf'">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-gray-900 mb-1">Turf & Block</h4>
+                        <p class="text-gray-500 text-sm mb-4">Modern geometric design combining artificial turf with paving blocks.</p>
+                        <div class="flex items-end gap-1 mb-6">
+                            <span class="text-3xl font-extrabold text-brand-600">R380</span>
+                            <span class="text-gray-500 mb-1">/sqm installed</span>
+                        </div>
+                        <button onclick="document.getElementById('turf-type').value='Turf & Block'; document.getElementById('estimator').scrollIntoView();" class="w-full py-2.5 rounded-xl border-2 border-gray-200 text-gray-700 font-semibold hover:border-brand-600 hover:text-brand-600 transition">Select for Quote</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="estimator" class="py-24 bg-brand-900 text-white relative overflow-hidden">
+        <!-- Decorative Background -->
+        <div class="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-96 h-96 bg-brand-600/30 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-96 h-96 bg-brand-500/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="reveal">
+                    <h2 class="text-brand-400 font-semibold tracking-wide uppercase mb-2">Interactive Tool</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold mb-6">Instant Quote Estimator</h3>
+                    <p class="text-gray-300 text-lg mb-8">Plan your budget instantly. Use our interactive calculator to get an estimated cost for your artificial lawn project. *Please note this is an estimate; contact us for a formal quote.</p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3 text-gray-200"><i class="fas fa-check-circle text-brand-400 text-xl"></i> Includes standard ground preparation</li>
+                        <li class="flex items-center gap-3 text-gray-200"><i class="fas fa-check-circle text-brand-400 text-xl"></i> Includes weed barrier & seaming</li>
+                        <li class="flex items-center gap-3 text-gray-200"><i class="fas fa-check-circle text-brand-400 text-xl"></i> Includes silica sand infill</li>
+                    </ul>
+                </div>
+
+                <!-- The Calculator UI -->
+                <div class="bg-white rounded-3xl p-8 shadow-2xl text-gray-900 reveal" style="transition-delay: 200ms;">
+                    
+                    <!-- Input: Turf Type -->
+                    <div class="mb-8">
+                        <label for="turf-type" class="block text-sm font-semibold text-gray-700 mb-2">Select Product</label>
+                        <div class="relative">
+                            <select id="turf-type" class="block w-full pl-4 pr-10 py-3 text-base border-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-brand-600 rounded-xl appearance-none transition bg-white font-medium">
+                                <option value="Eco 20mm" data-price="340">Eco 20mm (R340/sqm installed)</option>
+                                <option value="Augusta 25mm" data-price="380">Augusta 25mm (R380/sqm installed)</option>
+                                <option value="Turf & Block" data-price="380">Turf & Block (R380/sqm installed)</option>
+                                <option value="Multi Sport 15mm" data-price="440">Multi Sport Green 15mm (R440/sqm installed)</option>
+                            </select>
+                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Input: Area Slider -->
+                    <div class="mb-10">
+                        <div class="flex justify-between items-end mb-2">
+                            <label for="area-slider" class="block text-sm font-semibold text-gray-700">Project Area (Square Meters)</label>
+                            <div class="text-2xl font-bold text-brand-600"><span id="area-display">50</span> m²</div>
+                        </div>
+                        <input type="range" id="area-slider" min="10" max="300" value="50" step="1" class="w-full mt-4">
+                        <div class="flex justify-between text-xs text-gray-400 mt-2 font-medium">
+                            <span>10 m²</span>
+                            <span>300+ m²</span>
+                        </div>
+                    </div>
+
+                    <!-- Output: Results -->
+                    <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+                        <div class="text-sm text-gray-500 font-medium mb-1">Estimated Total Cost</div>
+                        <div class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-2 transition-all duration-300" id="total-cost-display">R 17,000</div>
+                        <div class="text-xs text-gray-400">Includes materials, labor, and standard prep.</div>
+                    </div>
+
+                    <a href="https://wa.me/27609697561?text=Hi%20Rosh%20Synthetics,%20I%20used%20your%20calculator.%20I%20have%20an%20area%20of%20approx%20[AREA]%20sqm%20and%20I'm%20interested%20in%20the%20[TURF]%20product.%20Can%20we%20arrange%20a%20site%20visit?" 
+                       id="whatsapp-quote-btn"
+                       target="_blank"
+                       class="mt-6 w-full flex justify-center items-center gap-2 bg-[#25D366] text-white py-3.5 rounded-xl font-bold text-lg hover:bg-[#20bd5a] transition shadow-lg shadow-[#25D366]/30">
+                        <i class="fab fa-whatsapp text-2xl"></i> Send to WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 reveal">
+                <div class="max-w-2xl">
+                    <h2 class="text-brand-600 font-semibold tracking-wide uppercase mb-2">Our Portfolio</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-gray-900">Featured Installations</h3>
+                </div>
+                <p class="text-gray-500 mt-4 md:mt-0 font-medium">Click images to enlarge</p>
+            </div>
+
+            <!-- CSS Grid Masonry-style Layout -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-[250px]">
+                
+                <!-- Image Item 1 (Putting Green) -->
+                <div class="relative rounded-2xl overflow-hidden group cursor-pointer reveal shadow-sm lg:col-span-2 lg:row-span-2" onclick="openLightbox('3.jpeg', 'Residential Putting Green Installation')">
+                    <img src="3.jpeg" alt="Putting Green" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" onerror="this.src='https://placehold.co/800x600/15803d/ffffff?text=Putting+Green'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <h4 class="text-white font-bold text-xl">Residential Putting Green</h4>
+                        <p class="text-gray-200 text-sm">Perfecting the short game at home.</p>
+                    </div>
+                </div>
+
+                <!-- Image Item 2 (Turf and Block) -->
+                <div class="relative rounded-2xl overflow-hidden group cursor-pointer reveal shadow-sm" onclick="openLightbox('6.jpeg', 'Turf and Paving Block Integration')" style="transition-delay: 100ms;">
+                    <img src="6.jpeg" alt="Turf and Block" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" onerror="this.src='https://placehold.co/400x400/64748b/ffffff?text=Turf+%26+Block'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <h4 class="text-white font-bold text-lg">Turf & Paving</h4>
+                    </div>
+                </div>
+
+                <!-- Image Item 3 (Indoor Setup) -->
+                <div class="relative rounded-2xl overflow-hidden group cursor-pointer reveal shadow-sm" onclick="openLightbox('4.jpeg', 'Indoor Golf Simulator / Therapy Room')" style="transition-delay: 200ms;">
+                    <img src="4.jpeg" alt="Indoor Installation" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" onerror="this.src='https://placehold.co/400x400/1f2937/ffffff?text=Indoor+Setup'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <h4 class="text-white font-bold text-lg">Indoor Installation</h4>
+                    </div>
+                </div>
+
+                <!-- Image Item 4 (Sports Line) -->
+                <div class="relative rounded-2xl overflow-hidden group cursor-pointer reveal shadow-sm" onclick="openLightbox('1.jpeg', 'Sports Field Line Marking')" style="transition-delay: 0ms;">
+                    <img src="1.jpeg" alt="Sports Field" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" onerror="this.src='https://placehold.co/400x400/16a34a/ffffff?text=Sports+Field'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <h4 class="text-white font-bold text-lg">Sports Fields</h4>
+                    </div>
+                </div>
+
+                <!-- Image Item 5 (Rolls of Grass) -->
+                <div class="relative rounded-2xl overflow-hidden group cursor-pointer reveal shadow-sm lg:col-span-2" onclick="openLightbox('8.jpeg', 'Premium Turf Rolls Ready for Installation')" style="transition-delay: 100ms;">
+                    <img src="8.jpeg" alt="Turf Rolls" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" onerror="this.src='https://placehold.co/800x400/14532d/ffffff?text=Premium+Turf+Rolls'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <h4 class="text-white font-bold text-xl">High-Quality Materials</h4>
+                        <p class="text-gray-200 text-sm">We only use the best synthetic fibers for longevity.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal (Hidden by default) -->
+    <div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 hidden flex flex-col items-center justify-center opacity-0 transition-opacity duration-300">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white/70 hover:text-white text-4xl focus:outline-none transition">
+            <i class="fas fa-times"></i>
+        </button>
+        <img id="lightbox-img" src="" alt="Enlarged view" class="max-h-[85vh] max-w-[90vw] object-contain rounded-lg shadow-2xl">
+        <p id="lightbox-caption" class="text-white mt-6 text-lg font-medium"></p>
+    </div>
+
+    <section class="py-16 bg-brand-600">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+            <div class="flex flex-col md:flex-row items-center justify-between bg-white rounded-3xl p-8 md:p-12 shadow-2xl">
+                <div class="mb-6 md:mb-0 max-w-xl">
+                    <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2">Ready to transform your lawn?</h3>
+                    <p class="text-gray-600 text-lg">Join hundreds of happy customers in Cape Town. Contact us for a free, no-obligation site measurement and quote.</p>
+                </div>
+                <div class="flex-shrink-0 flex gap-4 w-full md:w-auto">
+                    <a href="tel:0027609697561" class="flex-1 md:flex-none flex justify-center items-center gap-2 bg-gray-900 text-white px-8 py-4 rounded-xl font-bold hover:bg-gray-800 transition">
+                        <i class="fas fa-phone"></i> Call Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-gray-900 text-white pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Brand Info -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="w-10 h-10 bg-brand-500 rounded-lg flex items-center justify-center text-white font-bold text-xl">RS</div>
+                        <span class="font-bold text-2xl tracking-tight">Rosh<span class="text-brand-500">Synthetics</span></span>
+                    </div>
+                    <p class="text-gray-400 text-lg mb-8 max-w-md">Cape Town's trusted experts in artificial grass supply and installation. Save water, reduce maintenance, and enjoy an evergreen lifestyle.</p>
+                    
+                    <!-- Socials (Based on Image 4) -->
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-xl hover:bg-brand-600 hover:text-white transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-xl hover:bg-brand-600 hover:text-white transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-xl hover:bg-brand-600 hover:text-white transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-xl hover:bg-brand-600 hover:text-white transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Details -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 border-b border-gray-800 pb-2">Contact Us</h4>
+                    <ul class="space-y-4">
+                        <li>
+                            <a href="tel:0027609697561" class="flex items-start gap-3 text-gray-400 hover:text-white transition group">
+                                <i class="fas fa-phone mt-1 text-brand-500 group-hover:scale-110 transition"></i>
+                                <div>
+                                    <span class="block font-medium">Phone / WhatsApp</span>
+                                    0027 60 969 7561
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tel:0027614441264" class="flex items-start gap-3 text-gray-400 hover:text-white transition group">
+                                <i class="fas fa-phone-alt mt-1 text-brand-500 group-hover:scale-110 transition"></i>
+                                <div>
+                                    <span class="block font-medium">Alternative Number</span>
+                                    0027 61 444 1264
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:roshmudyiwa@gmail.com" class="flex items-start gap-3 text-gray-400 hover:text-white transition group">
+                                <i class="fas fa-envelope mt-1 text-brand-500 group-hover:scale-110 transition"></i>
+                                <div class="break-all">
+                                    <span class="block font-medium">Email</span>
+                                    roshmudyiwa@gmail.com
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 border-b border-gray-800 pb-2">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#services" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition">Products & Pricing</a></li>
+                        <li><a href="#gallery" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition">Project Gallery</a></li>
+                        <li><a href="#estimator" class="text-gray-400 hover:text-white hover:translate-x-1 inline-block transition">Quote Calculator</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+                <p>&copy; 2024 Rosh Synthetics. All rights reserved.</p>
+                <p>Designed for Cape Town, South Africa.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button for Conversions -->
+    <a href="https://wa.me/27609697561?text=Hi%20Rosh%20Synthetics,%20I'm%20interested%20in%20artificial%20grass." 
+       target="_blank" 
+       class="fixed bottom-6 right-6 w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 transition duration-300 z-50 animate-bounce"
+       style="animation-duration: 3s;">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // --- 1. Navigation & Mobile Menu ---
+        const navbar = document.getElementById('navbar');
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        // Toggle mobile menu
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+
+        // Navbar styling on scroll
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.replace('bg-white/95', 'bg-white');
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.replace('bg-white', 'bg-white/95');
+            }
+        });
+
+
+        // --- 2. Quote Estimator Logic ("React-like" State) ---
+        const turfSelect = document.getElementById('turf-type');
+        const areaSlider = document.getElementById('area-slider');
+        const areaDisplay = document.getElementById('area-display');
+        const totalDisplay = document.getElementById('total-cost-display');
+        const waQuoteBtn = document.getElementById('whatsapp-quote-btn');
+
+        function calculateEstimate() {
+            // Get state values
+            const area = parseInt(areaSlider.value);
+            const selectedOption = turfSelect.options[turfSelect.selectedIndex];
+            const pricePerSqm = parseInt(selectedOption.getAttribute('data-price'));
+            const turfName = selectedOption.value;
+
+            // Calculate
+            const total = area * pricePerSqm;
+
+            // Update UI (DOM Mutation)
+            areaDisplay.textContent = area;
+            
+            // Format number with commas
+            totalDisplay.textContent = 'R ' + total.toLocaleString('en-ZA');
+
+            // Update WhatsApp Link dynamically
+            const waText = `Hi Rosh Synthetics, I used your calculator. I have an area of approx ${area} sqm and I'm interested in the ${turfName} product. Can we arrange a site visit?`;
+            waQuoteBtn.href = `https://wa.me/27609697561?text=${encodeURIComponent(waText)}`;
+        }
+
+        // Add Event Listeners to inputs
+        turfSelect.addEventListener('change', calculateEstimate);
+        areaSlider.addEventListener('input', calculateEstimate);
+        
+        // Initial Calculation on load
+        calculateEstimate();
+
+
+        // --- 3. Scroll Reveal Animations (Intersection Observer) ---
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealOptions = {
+            threshold: 0.15, // Trigger when 15% of element is visible
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Stop observing once revealed
+                }
+            });
+        }, revealOptions);
+
+        revealElements.forEach(el => {
+            revealOnScroll.observe(el);
+        });
+
+
+        // --- 4. Lightbox Gallery Logic ---
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+
+        window.openLightbox = function(imageSrc, captionText) {
+            lightboxImg.src = imageSrc;
+            lightboxCaption.textContent = captionText;
+            lightbox.classList.remove('hidden');
+            
+            // Small delay to allow display:block to apply before changing opacity for transition
+            setTimeout(() => {
+                lightbox.classList.remove('opacity-0');
+                lightbox.classList.add('opacity-100');
+            }, 10);
+            
+            document.body.style.overflow = 'hidden'; // Prevent scrolling under modal
+        }
+
+        window.closeLightbox = function() {
+            lightbox.classList.remove('opacity-100');
+            lightbox.classList.add('opacity-0');
+            
+            setTimeout(() => {
+                lightbox.classList.add('hidden');
+                document.body.style.overflow = 'auto'; // Restore scrolling
+            }, 300); // Wait for transition to finish
+        }
+
+        // Close lightbox on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) {
+                closeLightbox();
+            }
+        });
+        
+        // Close lightbox when clicking outside the image
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+    </script>
+</body>
+</html>
