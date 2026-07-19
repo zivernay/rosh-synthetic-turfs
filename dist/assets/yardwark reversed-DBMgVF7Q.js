@@ -1,0 +1,1 @@
+var e=""+new URL("yardwark reversed-CBGoyBel.webp",import.meta.url).href;export{e as default};

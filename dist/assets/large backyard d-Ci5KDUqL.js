@@ -1,0 +1,1 @@
+var a=""+new URL("large backyard d-WjQApbO0.jpeg",import.meta.url).href;export{a as default};

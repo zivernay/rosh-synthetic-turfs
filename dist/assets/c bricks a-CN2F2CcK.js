@@ -1,0 +1,1 @@
+var e=""+new URL("c bricks a-CUSdtxb4.jpeg",import.meta.url).href;export{e as default};
