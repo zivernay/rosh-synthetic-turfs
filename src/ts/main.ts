@@ -407,24 +407,12 @@ function initYardVideoPreview(): void {
 
         observer.disconnect();
 
-        const mod = await import('../assets/videos/yardwalk.webp');
-        const source = new Image();
-        source.src = mod.default;
-
-        source.onload = () => {
-            const canvas = document.createElement('canvas');
-            canvas.width = source.naturalWidth;
-            canvas.height = source.naturalHeight;
-
-            const ctx = canvas.getContext('2d');
-            if (!ctx) {
-                preview.src = mod.default;
-                return;
-            }
-
-            ctx.drawImage(source, 0, 0);
-            preview.src = canvas.toDataURL('image/jpeg', 0.85);
-        };
+        // Load the static preview image
+        const mod = await import('../assets/videos/thumbnail.webp');
+        
+        // Directly set the preview source without canvas frame extraction
+        preview.src = mod.default;
+        
     }, { rootMargin: '120px' });
 
     observer.observe(tile);
