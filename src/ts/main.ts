@@ -360,9 +360,15 @@ function setupAutoCarousel(): void {
             }
 
             const index = getCarouselIndex(carousel);
-            const nextIndex = (index + 1) % slides.length;
-            scrollCarouselToIndex(carousel, nextIndex);
-        }, 10000);
+            const nextIndex = index + 1;
+
+            if (nextIndex < slides.length) {
+                scrollCarouselToIndex(carousel, nextIndex);
+            } else {
+                // Stop automatically ticking once we reach the last slide
+                stopCarouselAutoPlay(carousel);
+            }
+        }, 3000);
 
         carouselAutoPlayState.get(carousel)!.intervalId = intervalId;
     });
@@ -409,10 +415,10 @@ function initYardVideoPreview(): void {
 
         // Load the static preview image
         const mod = await import('../assets/videos/thumbnail.webp');
-        
+
         // Directly set the preview source without canvas frame extraction
         preview.src = mod.default;
-        
+
     }, { rootMargin: '120px' });
 
     observer.observe(tile);
