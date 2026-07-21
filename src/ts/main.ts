@@ -362,7 +362,7 @@ function setupAutoCarousel(): void {
             const index = getCarouselIndex(carousel);
             const nextIndex = (index + 1) % slides.length;
             scrollCarouselToIndex(carousel, nextIndex);
-        }, 5000);
+        }, 10000);
 
         carouselAutoPlayState.get(carousel)!.intervalId = intervalId;
     });
@@ -485,7 +485,7 @@ function setupCarouselDots(): void {
         let resizeTimer: number | undefined;
         const onResize = () => {
             window.clearTimeout(resizeTimer);
-            resizeTimer = window.setTimeout(() => updateDots(), 120);
+            resizeTimer = window.setTimeout(() => updateDots(), 150);
         };
 
         window.addEventListener('resize', onResize, { passive: true });
