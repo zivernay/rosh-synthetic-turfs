@@ -482,25 +482,6 @@ function setupCarouselDots(): void {
         carousel.addEventListener('scroll', onScroll, { passive: true });
         updateDots();
 
-        const lazyImages = carousel.querySelectorAll<HTMLImageElement>('img[data-src]');
-        if (lazyImages.length > 0 && 'IntersectionObserver' in window) {
-            const io = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target as HTMLImageElement;
-                        const dataSrc = img.getAttribute('data-src');
-                        if (dataSrc) {
-                            img.src = dataSrc;
-                            img.removeAttribute('data-src');
-                        }
-                        observer.unobserve(img);
-                    }
-                });
-            }, { root: carousel, threshold: 0.1 });
-
-            lazyImages.forEach(img => io.observe(img));
-        }
-
         let resizeTimer: number | undefined;
         const onResize = () => {
             window.clearTimeout(resizeTimer);
