@@ -1,0 +1,1 @@
+var a=""+new URL("thumbnail-CNrB8oal.webp",import.meta.url).href;export{a as default};
