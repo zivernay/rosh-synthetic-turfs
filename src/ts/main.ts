@@ -1,4 +1,4 @@
-const PHONE_NUMBER = '27609697561';
+const PHONE_NUMBER = '27824817641';
 
 type GalleryLoader = () => Promise<string[]>;
 
@@ -512,6 +512,32 @@ function initRevealAnimations(): void {
     document.querySelectorAll<HTMLElement>('.reveal').forEach(el => observer.observe(el));
 }
 
+function initContactBlinkEffect(): void {
+    const contactBtns = document.querySelectorAll<HTMLAnchorElement>('a[href="#contact"]');
+    const contactSection = document.getElementById('contact');
+
+    if (contactBtns.length === 0 || !contactSection) {
+        return;
+    }
+
+    for (const btn of contactBtns) {
+        btn.addEventListener('click', (event) => {
+            event.preventDefault();
+
+            // Smooth scroll to the contact section
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+
+            // Trigger the blink animation by adding the class
+            contactSection.classList.add('blink-animation');
+
+            // Remove the class after the animation completes
+            window.setTimeout(() => {
+                contactSection.classList.remove('blink-animation');
+            }, 2200);
+        });
+    }
+}
+
 function init(): void {
     initMobileMenu();
     initPortfolioLightbox();
@@ -521,6 +547,7 @@ function init(): void {
     setupAutoCarousel();
     initYardVideoPreview();
     initRevealAnimations();
+    initContactBlinkEffect();
 }
 
 if (document.readyState === 'loading') {
